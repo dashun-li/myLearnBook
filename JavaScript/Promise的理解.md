@@ -85,11 +85,16 @@ Promise对象含有then方法，then()调用后返回一个Promise对象，意�
 	__proto__:Promise
 	[[PromiseStatus]]:"resolved"
 	[[PromiseValue]]:undefined
-1.如果then()方法中返回了一个参数值，那么返回的Promise将会变成接收状态。   
+1.如果then()方法中返回了一个参数值，那么返回的Promise将会变成接收状态。 
+
 2.如果then()方法中抛出了一个异常，那么返回的Promise将会变成拒绝状态。
-3.如果then()方法调用resolve()方法，那么返回的Promise将会变成接收状态。   
+
+3.如果then()方法调用resolve()方法，那么返回的Promise将会变成接收状态。  
+
 4.如果then()方法调用reject()方法，那么返回的Promise将会变成拒绝状态。   
+
 5.如果then()方法返回了一个未知状态(pending)的Promise新实例，那么返回的新Promise就是未知状态。   
+
 6.如果then()方法没有明确指定的resolve(data)/reject(data)/return data时，那么返回的新Promise就是接收状态，可以一层一层地往下传递。   
 实例如下：   
 
@@ -212,7 +217,7 @@ Promise.race()和Promise.all()类似，都接收一个可以迭代的参数，�
 	}).catch(function(err) {
 	  console.log(err); // 不执行
 	});
-####　Promise.resolve()
+#### Promise.resolve()
 Promise.resolve()接受一个参数值，可以是普通的值，具有then()方法的对象和Promise实例。正常情况下，它返回一个Promise对象，状态为fulfilled。但是，当解析时发生错误时，返回的Promise对象将会置为rejected态。如下：　　　　　
 
 	// 参数为普通值
@@ -270,7 +275,7 @@ Promise.reject()和Promise.resolve()正好相反，它接收一个参数值reaso
 	});
 总之，除非Promise.then()方法内部抛出异常或者是明确置为rejected态，否则它返回的Promise的状态都是fulfilled态，即完成态，并且它的状态不受它的上一级的状态的影响。
 
-##总结   
+## 总结   
 
 解决Node回调地狱的不止有Promise，还有Generator和ES7提出的Async实现。      
 
